@@ -1,0 +1,8 @@
+.board-space{
+  width: 100px;
+  height: 100px;
+}
+
+.rabbit-hole{
+  width: fit-content;
+}
