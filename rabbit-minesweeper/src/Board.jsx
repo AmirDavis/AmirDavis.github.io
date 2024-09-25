@@ -4,7 +4,9 @@ import { useState } from "react";
 export default function Board() {
   const board = Array.from({ length: 100 });
   const holes = createArray();
-  const [boardText, setBoardText] = useState("");
+  const [boardText, setBoardText] = useState(
+    "Click on a square to see what's under"
+  );
 
   return (
     <div id="board">

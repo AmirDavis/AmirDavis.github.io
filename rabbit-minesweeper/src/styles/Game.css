@@ -1,14 +1,16 @@
 .player-card {
+    display: flex;
+    flex-direction: column;
     width: 200px;
     height: 200px;
-    margin-bottom: 50px;
-    border-color: red;
+    border-color: black;
     border-style: solid;
+    padding: 0px;
 }
 
 .player-name{
     margin: 0px;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 .player-lives{
@@ -18,7 +20,7 @@
 
 .game-header{
     display: flex;
-    height: 205px;
+    height: 200px;
 }
 
 .game-header-h1{
@@ -28,13 +30,14 @@
     vertical-align: top;
     align-items: center;
     justify-content: center;
-    border-color: red;
+    border-color: black;
     border-style: solid;
+    height: 200px;
 }
 
 #board{
     display: flexbox;
-    border-color: red;
+    border-color: black;
     border-style: solid;
     margin-left: auto;
     margin-right: auto;
