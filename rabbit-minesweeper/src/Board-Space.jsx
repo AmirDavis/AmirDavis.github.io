@@ -10,10 +10,15 @@ export default function BoardSpace({ key, index, holesArray, setBoardText }) {
   const { playerOneName, playerOneLives, setPlayerOneLives } =
     useContext(playerOneContext);
   const { rabbitFound, setRabbitFound } = useContext(rabbitFoundContext);
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
 
   const handleButtonClick = () => {
     const hole = holesArray[index - 1];
     console.log(hole);
+
+    if (hasBeenClicked) {
+      return;
+    }
 
     if (hole === "B") {
       setButtonImage("src/assets/bomb.jpg");
@@ -31,6 +36,8 @@ export default function BoardSpace({ key, index, holesArray, setBoardText }) {
       setButtonImage("src/assets/emptyRabbitHole.jpg");
       setBoardText("You found nothing...");
     }
+
+    setHasBeenClicked(true);
   };
 
   return (
