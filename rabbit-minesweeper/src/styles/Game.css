@@ -8,19 +8,22 @@
     padding: 0px;
 }
 
-.player-name{
-    margin: 0px;
-    margin-top: 5px;
+.player-pic {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
 }
 
-.player-lives{
+.player-name, .player-lives{
     margin: 0px;
+    margin-left: 5px;
     margin-top: 5px;
 }
 
 .game-header{
     display: flex;
     height: 200px;
+    margin-bottom: 5px;
 }
 
 .game-header-h1{
@@ -35,19 +38,33 @@
     height: 200px;
 }
 
+#entire-board{
+    display: flex;
+    flex-direction: row;
+}
+
+#left-side-of-board{
+    width: 20%;
+    display: block;
+}
+
 #board{
-    display: flexbox;
-    border-color: black;
-    border-style: solid;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0px;
     width: 62%;
+}
+
+.board-space {
+    width: 100px;
+    height: 100px;
+}
+
+.rabbit-hole {
+    width: fit-content;
 }
 
 #board-space-pic {
     width: 100px;
     height: 75px;
-    background-color: white;
 }
 
 #board-space-button {
@@ -69,12 +86,3 @@
     margin: 0px;
 }
 
-.player-pic {
-    width: 100%;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-.player-card{
-    display: flexbox;
-}

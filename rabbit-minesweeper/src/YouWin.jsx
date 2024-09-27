@@ -1,6 +1,9 @@
-import ThanksForPlaying from "../Thanks-for-playing";
+import { playerOneContext } from "./App";
+import Game from "./Game";
+import ThanksForPlaying from "./Thanks-for-playing";
+import { useState, useContext } from "react";
 
-export default function YouWin() {
+export default function YouWin({ setRabbitFound }) {
   const [playAgain, setPlayAgain] = useState(null);
   const { playerOneName, playerOneLives, setPlayerOneLives } =
     useContext(playerOneContext);
@@ -8,6 +11,7 @@ export default function YouWin() {
   const handleYesClick = () => {
     setPlayAgain(true);
     setPlayerOneLives(3);
+    setRabbitFound(false);
   };
   const handleNoClick = () => {
     setPlayAgain(false);
@@ -18,11 +22,10 @@ export default function YouWin() {
   ) : playAgain == false ? (
     <ThanksForPlaying></ThanksForPlaying>
   ) : (
-    <div id="you-won-screen">
-      <h1 className="game-over">You Won!</h1>
-      <img src="src\assets\rabbitFound.jpg" alt="" className="you-won-pic" />
-      <p>Lives = {playerOneLives}</p>
-      <p> You found the bunny!</p>
+    <div className="game-over-screen">
+      <h1 className="game-over-h1">You Won!</h1>
+      <img src="src\assets\rabbitFound.jpg" alt="" className="game-over-pic" />
+      <p> You found the rabbit!</p>
       <p>Do you want to play again?</p>
       <button className="btn-yes" onClick={handleYesClick}>
         Yes

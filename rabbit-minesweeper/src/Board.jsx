@@ -3,39 +3,41 @@ import { useState } from "react";
 
 export default function Board() {
   const board = Array.from({ length: 100 });
-  const holes = createArray();
+  const [holes] = useState(() => createArray());
   const [boardText, setBoardText] = useState(
     "Click on a square to see what's under"
   );
 
   return (
-    <div id="board">
-      {
-        <p id="board-text">{boardText}</p>
-        /* Use map to render the board space x-times 
-      key is a reserved keyword in JS/React that is used as a unique identifier for components*/
-      }
-      {board.map((_, index) =>
-        (index + 1) % 10 == 0 ? (
-          <>
+    <div id="entire-board">
+      <div id="left-side-of-board">
+        <p>{boardText}</p>
+      </div>
+      <div id="board">
+        {/* Use map to render the board space x-times 
+      key is a reserved keyword in JS/React that is used as a unique identifier for components*/}
+        {board.map((_, index) =>
+          (index + 1) % 10 == 0 ? (
+            <>
+              <BoardSpace
+                key={index}
+                index={index + 1}
+                holesArray={holes}
+                setBoardText={setBoardText}
+              />{" "}
+              <br />
+            </>
+          ) : (
             <BoardSpace
               key={index}
               index={index + 1}
               holesArray={holes}
               setBoardText={setBoardText}
-            />{" "}
-            <br />
-          </>
-        ) : (
-          <BoardSpace
-            key={index}
-            index={index + 1}
-            holesArray={holes}
-            setBoardText={setBoardText}
-          />
-        )
-      )}
-      {console.log(holes)}
+            />
+          )
+        )}
+        {console.log(holes)}
+      </div>
     </div>
   );
 }

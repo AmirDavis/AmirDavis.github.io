@@ -3,7 +3,7 @@ import Game from "./Game";
 import ThanksForPlaying from "./Thanks-for-playing";
 import { useState, useContext } from "react";
 
-export default function GameOver() {
+export default function GameOver({ setRabbitFound }) {
   const [playAgain, setPlayAgain] = useState(null);
   const { playerOneName, playerOneLives, setPlayerOneLives } =
     useContext(playerOneContext);
@@ -11,6 +11,7 @@ export default function GameOver() {
   const handleYesClick = () => {
     setPlayAgain(true);
     setPlayerOneLives(3);
+    setRabbitFound(false);
   };
   const handleNoClick = () => {
     setPlayAgain(false);
@@ -22,8 +23,8 @@ export default function GameOver() {
     <ThanksForPlaying></ThanksForPlaying>
   ) : (
     <div className="game-over-screen">
-      <h1 className="game-over">Game Over</h1>
-      <img src="src\assets\bomb.jpg" alt="" id="game-over-pic" />
+      <h1 className="game-over-h1">Game Over</h1>
+      <img src="src\assets\bomb.jpg" alt="" className="game-over-pic" />
       <p>Lives = {playerOneLives}</p>
       <p>Do you want to play again?</p>
       <button className="btn-yes" onClick={handleYesClick}>

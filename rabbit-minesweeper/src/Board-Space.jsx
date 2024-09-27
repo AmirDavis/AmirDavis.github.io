@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import { playerOneContext } from "./App";
+import { rabbitFoundContext } from "./Game";
 import GameOver from "./GameOver";
 
 export default function BoardSpace({ key, index, holesArray, setBoardText }) {
@@ -8,6 +9,7 @@ export default function BoardSpace({ key, index, holesArray, setBoardText }) {
   const [buttonImage, setButtonImage] = useState("src/assets/rabbit-hole.jpg");
   const { playerOneName, playerOneLives, setPlayerOneLives } =
     useContext(playerOneContext);
+  const { rabbitFound, setRabbitFound } = useContext(rabbitFoundContext);
 
   const handleButtonClick = () => {
     const hole = holesArray[index - 1];
@@ -15,15 +17,16 @@ export default function BoardSpace({ key, index, holesArray, setBoardText }) {
 
     if (hole === "B") {
       setButtonImage("src/assets/bomb.jpg");
-      setBoardText("BOOM! You found a bomb!");
+      setBoardText("BOOM! You found a bomb! You lost one life!");
       setPlayerOneLives(playerOneLives - 1);
     } else if (hole === "C") {
       setButtonImage("src/assets/carrot.jpg");
-      setBoardText("You found a carrot!");
+      setBoardText("You found a carrot! You gained a life!");
       setPlayerOneLives(playerOneLives + 1);
     } else if (hole === "R") {
       setButtonImage("src/assets/rabbitFound.jpg");
       setBoardText("You found the rabbit!");
+      setRabbitFound(true);
     } else {
       setButtonImage("src/assets/emptyRabbitHole.jpg");
       setBoardText("You found nothing...");

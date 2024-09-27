@@ -2,7 +2,7 @@ import { useState, createContext } from "react";
 import CharacterCreation from "./character-creation";
 import Game from "./Game";
 
-import "../src/styles/App.css";
+//import "../src/styles/App.css";
 export const playerOneContext = createContext();
 
 function App() {
