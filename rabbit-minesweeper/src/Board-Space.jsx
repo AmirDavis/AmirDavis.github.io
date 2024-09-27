@@ -17,6 +17,7 @@ export default function BoardSpace({ key, index, holesArray, setBoardText }) {
     console.log(hole);
 
     if (hasBeenClicked) {
+      setBoardText("You've already looked in this hole!");
       return;
     }
 
